@@ -11,10 +11,10 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <script>
 
-        window.onload = () => {
-            initCategory();
-            initPrefecture();
-        };
+        // window.onload = () => {
+        //     initCategory();
+        //     initPrefecture();
+        // };
 
         var initCategory = () => {
             const list = ['ヘルス', 'ホテヘル', 'デリヘル', 'エステ', 'ピンサロ', 'セクキャバ', 'ソープ'];
@@ -127,7 +127,10 @@
             検索
         </button>
     </form>
-
+    <script>
+        initCategory();
+        initPrefecture();
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
