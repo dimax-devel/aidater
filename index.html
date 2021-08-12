@@ -17,15 +17,24 @@
         };
 
         var initCategory = () => {
+            const paramKey = 'category';
             const list = ['ヘルス', 'ホテヘル', 'デリヘル', 'エステ', 'ピンサロ', 'セクキャバ', 'ソープ'];
+            var selected = getParam(paramKey);
+            if (selected == null || selected == '') {
+                document.getElementById(paramKey).innerText = selected;
+            }
+            else {
+                document.getElementById(paramKey).innerText = 'カテゴリ';
+            }
             var str = '';
             for (var i in list) {
-                str = str + '<a class="dropdown-item" href="#?category=' + list[i] + '">' + list[i] + '</a>';
+                str = str + '<a class="dropdown-item" href="#?' + paramKey + '=' + list[i] + '">' + list[i] + '</a>';
             }
             document.getElementById('category-list').innerHTML = str;
         }
 
         var initPrefecture = () => {
+            const paramKey = 'prefecture';
             const list = [
                 '愛知県', '青森県', '秋田県', '石川県', '茨城県', '岩手県', '愛媛県',
                 '大分県', '大阪府', '岡山県', '沖縄県', '香川県', '鹿児島県', '神奈川県',
@@ -35,9 +44,16 @@
                 '広島県', '福井県', '福岡県', '福島県', '北海道', '三重県', '宮城県',
                 '宮崎県', '山形県', '山口県', '山梨県', '和歌山県'
             ];
+            var selected = getParam(paramKey);
+            if (selected == null || selected == '') {
+                document.getElementById(paramKey).innerText = selected;
+            }
+            else {
+                document.getElementById(paramKey).innerText = '都道府県';
+            }
             var str = '';
             for (var i in list) {
-                str = str + '<a class="dropdown-item" href="#?prefecture=' + list[i] + '">' + list[i] + '</a>';
+                str = str + '<a class="dropdown-item" href="#?' + paramKey + '=' + list[i] + '">' + list[i] + '</a>';
             }
             document.getElementById('prefecture-list').innerHTML = str;
         }
@@ -63,6 +79,22 @@
                 .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
+        }
+
+        /**
+         * Get the URL parameter value
+         *
+         * @param  name {string} パラメータのキー文字列
+         * @return  url {url} 対象のURL文字列（任意）
+         */
+        function getParam(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
     </script>
     <title>出勤履歴検索</title>
