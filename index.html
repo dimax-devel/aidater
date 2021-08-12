@@ -20,7 +20,7 @@
             const list = ['ヘルス', 'ホテヘル', 'デリヘル', 'エステ', 'ピンサロ', 'セクキャバ', 'ソープ'];
             var str = '';
             for (var i in list) {
-                str = str + '<a class="dropdown-item" href="#">' + list[i] + '</a>';
+                str = str + '<a class="dropdown-item" href="#?category=' + list[i] + '">' + list[i] + '</a>';
             }
             document.getElementById('category-list').innerHTML = str;
         }
@@ -37,7 +37,7 @@
             ];
             var str = '';
             for (var i in list) {
-                str = str + '<a class="dropdown-item" href="#">' + list[i] + '</a>';
+                str = str + '<a class="dropdown-item" href="#?prefecture=' + list[i] + '">' + list[i] + '</a>';
             }
             document.getElementById('prefecture-list').innerHTML = str;
         }
