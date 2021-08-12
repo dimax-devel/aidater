@@ -26,10 +26,9 @@
             else {
                 document.getElementById(paramKey).innerText = selected;
             }
-            location.reload();
             var str = '';
             for (var i in list) {
-                str = str + '<a class="dropdown-item" href="#?' + paramKey + '=' + list[i] + '">' + list[i] + '</a>';
+                str = str + '<a class="dropdown-item" href="' + location.href + '?' + paramKey + '=' + list[i] + '">' + list[i] + '</a>';
             }
             document.getElementById('category-list').innerHTML = str;
         }
@@ -54,7 +53,7 @@
             }
             var str = '';
             for (var i in list) {
-                str = str + '<a class="dropdown-item" href="#?' + paramKey + '=' + list[i] + '">' + list[i] + '</a>';
+                str = str + '<a class="dropdown-item" href="' + location.href + '?' + paramKey + '=' + list[i] + '">' + list[i] + '</a>';
             }
             document.getElementById('prefecture-list').innerHTML = str;
         }
