@@ -21,10 +21,10 @@
             const list = ['ヘルス', 'ホテヘル', 'デリヘル', 'エステ', 'ピンサロ', 'セクキャバ', 'ソープ'];
             var selected = getParam(paramKey);
             if (selected == null || selected == '') {
-                document.getElementById(paramKey).innerText = selected;
+                document.getElementById(paramKey).innerText = 'カテゴリ';
             }
             else {
-                document.getElementById(paramKey).innerText = 'カテゴリ';
+                document.getElementById(paramKey).innerText = selected;
             }
             var str = '';
             for (var i in list) {
@@ -46,10 +46,10 @@
             ];
             var selected = getParam(paramKey);
             if (selected == null || selected == '') {
-                document.getElementById(paramKey).innerText = selected;
+                document.getElementById(paramKey).innerText = '都道府県';
             }
             else {
-                document.getElementById(paramKey).innerText = '都道府県';
+                document.getElementById(paramKey).innerText = selected;
             }
             var str = '';
             for (var i in list) {
