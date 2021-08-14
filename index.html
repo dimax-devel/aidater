@@ -142,7 +142,7 @@
         function addParam(key, value) {
             if (key == 'prefecture' || key == 'category') {
                 document.getElementById('region').innerText = '地域';
-                document.searchParams.delete('region');
+                document.searchParams.set(null);
             }
 
             var url = new URL(location);
