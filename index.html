@@ -40,6 +40,7 @@
                     for (var i in list) {
                         str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
                     }
+                    str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'\')"></a>';
                     document.getElementById(targetId).innerHTML = str;
                 })
                 .catch(error => console.log('error', error));
@@ -75,6 +76,7 @@
             for (var i in list) {
                 str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\',　\'' + list[i] + '\');">' + list[i] + '</a>';
             }
+            str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'\')"></a>';
             document.getElementById(targetId).innerHTML = str;
         }
 
@@ -104,6 +106,7 @@
                     for (var i in list) {
                         str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
                     }
+                    str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'\')"></a>';
                     document.getElementById(targetId).innerHTML = str;
                 })
                 .catch(error => console.log('error', error));
