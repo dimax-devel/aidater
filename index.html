@@ -145,7 +145,12 @@
                 document.getElementById('region').innerText = '地域';
                 url.searchParams.delete('region');
             }
-            url.searchParams.set(key, value);
+            if (value == null || value == '') {
+                url.searchParams.delete(key);
+            }
+            else {
+                url.searchParams.set(key, value);
+            }
             location.href = url;
         }
 
