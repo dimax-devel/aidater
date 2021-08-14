@@ -34,7 +34,14 @@
             var list = [];
             fetch("https://qgccu4skxd.execute-api.ap-northeast-1.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
-                .then(result => list = result)
+                .then(result => {
+                    list = result;
+                    var str = '';
+                    for (var i in list) {
+                        str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
+                    }
+                    document.getElementById(targetId).innerHTML = str;
+                })
                 .catch(error => console.log('error', error));
             var selected = getParam(paramKey);
             if (selected == null || selected == '') {
@@ -43,11 +50,6 @@
             else {
                 document.getElementById(paramKey).innerText = selected;
             }
-            var str = '';
-            for (var i in list) {
-                str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
-            }
-            document.getElementById(targetId).innerHTML = str;
         }
 
         var initPrefecture = () => {
@@ -95,7 +97,14 @@
             var list = [];
             fetch("https://5g9xgvjr3e.execute-api.ap-northeast-1.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
-                .then(result => list = result)
+                .then(result => {
+                    list = result;
+                    var str = '';
+                    for (var i in list) {
+                        str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
+                    }
+                    document.getElementById(targetId).innerHTML = str;
+                })
                 .catch(error => console.log('error', error));
             var selected = getParam(paramKey);
             if (selected == null || selected == '') {
@@ -104,12 +113,6 @@
             else {
                 document.getElementById(paramKey).innerText = selected;
             }
-            var str = '';
-            for (var i in list) {
-                str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
-            }
-            document.getElementById(targetId).innerHTML = str;
-
         }
 
         // define the callAPI function that takes a first name and last name as parameters
