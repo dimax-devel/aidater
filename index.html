@@ -14,11 +14,25 @@
         window.onload = () => {
             initCategory();
             initPrefecture();
+            initRegion();
         };
 
         var initCategory = () => {
             const paramKey = 'category';
-            const list = ['ヘルス', 'ホテヘル', 'デリヘル', 'エステ', 'ピンサロ', 'セクキャバ', 'ソープ'];
+            const targetId = 'category-list';
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            var list = [];
+            fetch("https://qgccu4skxd.execute-api.ap-northeast-1.amazonaws.com/dev", requestOptions)
+                .then(response => response.text())
+                .then(result => list = result)
+                .catch(error => console.log('error', error));
             var selected = getParam(paramKey);
             if (selected == null || selected == '') {
                 document.getElementById(paramKey).innerText = 'カテゴリ';
@@ -30,11 +44,12 @@
             for (var i in list) {
                 str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
             }
-            document.getElementById('category-list').innerHTML = str;
+            document.getElementById(targetId).innerHTML = str;
         }
 
         var initPrefecture = () => {
             const paramKey = 'prefecture';
+            const targetId = 'prefecture-list';
             const list = [
                 '愛知県', '青森県', '秋田県', '石川県', '茨城県', '岩手県', '愛媛県',
                 '大分県', '大阪府', '岡山県', '沖縄県', '香川県', '鹿児島県', '神奈川県',
@@ -55,7 +70,38 @@
             for (var i in list) {
                 str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\',　\'' + list[i] + '\');">' + list[i] + '</a>';
             }
-            document.getElementById('prefecture-list').innerHTML = str;
+            document.getElementById(targetId).innerHTML = str;
+        }
+
+        var initRegion = () => {
+            const paramKey = 'region';
+            const targetId = 'region-list';
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            var list = [];
+            fetch("https://5g9xgvjr3e.execute-api.ap-northeast-1.amazonaws.com/dev", requestOptions)
+                .then(response => response.text())
+                .then(result => list = result)
+                .catch(error => console.log('error', error));
+            var selected = getParam(paramKey);
+            if (selected == null || selected == '') {
+                document.getElementById(paramKey).innerText = '地域';
+            }
+            else {
+                document.getElementById(paramKey).innerText = selected;
+            }
+            var str = '';
+            for (var i in list) {
+                str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
+            }
+            document.getElementById(targetId).innerHTML = str;
+
         }
 
         // define the callAPI function that takes a first name and last name as parameters
@@ -135,11 +181,7 @@
             aria-haspopup="true" aria-expanded="false">
             地域
         </a>
-        <div class="dropdown-menu" aria-labelledby="region">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <div class="dropdown-menu" aria-labelledby="region" id="region-list"></div>
     </div>
     <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="shop" data-toggle="dropdown"
