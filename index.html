@@ -140,12 +140,11 @@
         }
 
         function addParam(key, value) {
+            var url = new URL(location);
             if (key == 'prefecture' || key == 'category') {
                 document.getElementById('region').innerText = '地域';
-                document.searchParams.set(null);
+                url.searchParams.delete('region');
             }
-
-            var url = new URL(location);
             url.searchParams.set(key, value);
             location.href = url;
         }
