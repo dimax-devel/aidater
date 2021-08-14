@@ -23,7 +23,7 @@
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
-            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append('Content-Type', 'application/json');
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -32,7 +32,7 @@
                 redirect: 'follow'
             };
             var list = [];
-            fetch("https://qgccu4skxd.execute-api.ap-northeast-1.amazonaws.com/dev", requestOptions)
+            fetch('https://qgccu4skxd.execute-api.ap-northeast-1.amazonaws.com/dev', requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     list = JSON.parse(result).body;
@@ -84,7 +84,7 @@
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
-            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append('Content-Type', 'application/json');
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -121,7 +121,7 @@
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
-            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append('Content-Type', 'application/json');
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -130,13 +130,18 @@
                 redirect: 'follow'
             };
             // make API call with parameters and use promises to get response
-            fetch("https://vtf16tonga.execute-api.ap-northeast-1.amazonaws.com/dev", requestOptions)
+            fetch('https://vtf16tonga.execute-api.ap-northeast-1.amazonaws.com/dev', requestOptions)
                 .then(response => response.text())
                 .then(result => alert(JSON.parse(result).body))
                 .catch(error => console.log('error', error));
         }
 
         function addParam(key, value) {
+            if (key == 'prefecture' || key == 'category') {
+                document.getElementById('region').innerText = '地域';
+                document.searchParams.delete('region');
+            }
+
             var url = new URL(location);
             url.searchParams.set(key, value);
             location.href = url;
