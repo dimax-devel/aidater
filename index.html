@@ -35,7 +35,7 @@
             fetch("https://qgccu4skxd.execute-api.ap-northeast-1.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
                 .then(result => {
-                    list = JSON.parse(result);
+                    list = JSON.parse(result).body;
                     var str = '';
                     for (var i in list) {
                         str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
@@ -98,7 +98,7 @@
             fetch("https://5g9xgvjr3e.execute-api.ap-northeast-1.amazonaws.com/dev", requestOptions)
                 .then(response => response.text())
                 .then(result => {
-                    list = JSON.parse(result);
+                    list = JSON.parse(result).body;
                     var str = '';
                     for (var i in list) {
                         str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
