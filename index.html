@@ -29,7 +29,6 @@
                 method: 'POST',
                 mode: 'cors',
                 headers: myHeaders,
-                body: raw,
                 redirect: 'follow'
             };
             var list = [];
@@ -84,6 +83,7 @@
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
+            var raw = JSON.stringify({ "prefecture": getParam('prefecture'), "category": getParam('category') });
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
