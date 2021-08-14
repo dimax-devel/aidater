@@ -119,6 +119,46 @@
             }
         }
 
+        var initShop = () => {
+            const paramKey = 'shop';
+            const targetId = 'shop-list';
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append('Content-Type', 'application/json');
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+            var list = [];
+            var url = new URL('https://ok6ztcirbe.execute-api.ap-northeast-1.amazonaws.com/dev');
+            url.searchParams.set('prefecture', getParam('prefecture'));
+            url.searchParams.set('category', getParam('category'));
+            url.searchParams.set('shop', getParam('shop'));
+            fetch(url.toString(), requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                    list = JSON.parse(result).body;
+                    var str = '';
+                    for (var i in list) {
+                        str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
+                    }
+                    str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'\')"></a>';
+                    document.getElementById(targetId).innerHTML = str;
+                })
+                .catch(error => console.log('error', error));
+            var selected = getParam(paramKey);
+            if (selected == null || selected == '') {
+                document.getElementById(paramKey).innerText = '店名';
+            }
+            else {
+                document.getElementById(paramKey).innerText = selected;
+            }
+        }
+
         // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (firstName, lastName) => {
             // instantiate a headers object
@@ -144,6 +184,8 @@
             if (key == 'prefecture' || key == 'category') {
                 document.getElementById('region').innerText = '地域';
                 url.searchParams.delete('region');
+                document.getElementById('shop').innerText = '店名';
+                url.searchParams.delete('shop');
             }
             if (value == null || value == '') {
                 url.searchParams.delete(key);
@@ -209,11 +251,7 @@
             aria-haspopup="true" aria-expanded="false">
             店名
         </a>
-        <div class="dropdown-menu" aria-labelledby="shop">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        <div class="dropdown-menu" aria-labelledby="shop" id="shop-list"></div>
     </div>
     <form>
         <div class="form-group">
