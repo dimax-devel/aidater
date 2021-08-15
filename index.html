@@ -217,56 +217,91 @@
 </head>
 
 <body>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" href="#">店名から検索</a>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="select-tab" data-bs-toggle="tab" href="#" role="tab" area-controls="select"
+                aria-selected="true">
+                店名から検索
+            </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">直接入力して検索</a>
+            <a class="nav-link" id="direct-tab" data-bs-toggle="tab" href="#" role="tab" area-controls="direct"
+                aria-selected="false">
+                直接入力して検索
+            </a>
         </li>
     </ul>
-
-    <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="category" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            カテゴリ
-        </a>
-        <div class="dropdown-menu" aria-labelledby="category" id="category-list"></div>
-    </div>
-    <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="prefecture" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            都道府県
-        </a>
-        <div class="dropdown-menu" aria-labelledby="prefecture" id="prefecture-list"></div>
-    </div>
-    <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="region" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            地域
-        </a>
-        <div class="dropdown-menu" aria-labelledby="region" id="region-list"></div>
-    </div>
-    <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="shop" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            店名
-        </a>
-        <div class="dropdown-menu" aria-labelledby="shop" id="shop-list"></div>
-    </div>
-    <form>
-        <div class="form-group">
-            <!-- <label for="exampleInputEmail1">Email address</label> -->
-            <input type="email" class="form-control" id="fName" placeholder="検索キーワード">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="select" role="tabpanel" aria-labelledby="select-tab">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="category" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    カテゴリ
+                </a>
+                <div class="dropdown-menu" aria-labelledby="category" id="category-list"></div>
+            </div>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="prefecture"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    都道府県
+                </a>
+                <div class="dropdown-menu" aria-labelledby="prefecture" id="prefecture-list"></div>
+            </div>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="region" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    地域
+                </a>
+                <div class="dropdown-menu" aria-labelledby="region" id="region-list"></div>
+            </div>
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="shop" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    店名
+                </a>
+                <div class="dropdown-menu" aria-labelledby="shop" id="shop-list"></div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="callAPI(
-                document.getElementById('fName').value,
-                document.getElementById('fName').value
-            )">
-            検索
-        </button>
-    </form>
+        <div class="tab-pane fade" id="profile" role="direct" aria-labelledby="direct-tab">
+            <form>
+                <div class="form-group">
+                    <!-- <label for="exampleInputEmail1">Email address</label> -->
+                    <input type="email" class="form-control" id="fName" placeholder="検索キーワード">
+                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="callAPI(
+                            document.getElementById('fName').value,
+                            document.getElementById('fName').value)">
+                    検索
+                </button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                First checkbox
+            </li>
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                Second checkbox
+            </li>
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                Third checkbox
+            </li>
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                Fourth checkbox
+            </li>
+            <li class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                Fifth checkbox
+            </li>
+        </ul>
+    </div>
+
 
 
     <!-- Optional JavaScript -->
