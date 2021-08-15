@@ -231,6 +231,14 @@
             </a>
         </li>
     </ul>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a href="#select2" class="nav-link active" data-toggle="tab">タブ１</a>
+        </li>
+        <li class="nav-item">
+            <a href="#direct2" class="nav-link" data-toggle="tab">タブ2</a>
+        </li>
+    </ul>
     <div class="tab-content">
         <div class="tab-pane fade show active" id="select" role="tabpanel" aria-labelledby="select-tab">
             <div class="dropdown">
@@ -301,7 +309,22 @@
             </li>
         </ul>
     </div>
-
+    <div class="tab-content">
+        <div id="select2" class="tab-pane active">
+            <button type="submit" class="btn btn-primary" onclick="callAPI(
+                                            document.getElementById('fName').value,
+                                            document.getElementById('fName').value)">
+                検索2
+            </button>
+        </div>
+        <div id="direct2" class="tab-pane">
+            <button type="submit" class="btn btn-primary" onclick="callAPI(
+                                            document.getElementById('fName').value,
+                                            document.getElementById('fName').value)">
+                検索3
+            </button>
+        </div>
+    </div>
 
 
     <!-- Optional JavaScript -->
