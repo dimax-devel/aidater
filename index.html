@@ -191,7 +191,7 @@
                     var str = '<tbody><tr><td colspan="5"><input class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast">すべてのキャスト</td></tr><tr>';
                     for (var i in list) {
                         str = str + '<td><input class="form-check-input" type="checkbox" value="" aria-label="check-cast">' + list[i] + '</td>';
-                        if (parseInt(i, 10) + 1 % 5 == 0) {
+                        if ((parseInt(i, 10) + 1) % 5 == 0) {
                             str = str + '</tr><tr>';
                         }
                     }
