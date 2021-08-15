@@ -162,7 +162,6 @@
         }
 
         var initCast = () => {
-            const paramKey = 'cast';
             const targetId = 'cast-list';
             // instantiate a headers object
             var myHeaders = new Headers();
@@ -199,13 +198,6 @@
                     document.getElementById(targetId).innerHTML = str;
                 })
                 .catch(error => console.log('error', error));
-            var selected = getParam(paramKey);
-            if (selected == null || selected == '') {
-                document.getElementById(paramKey).innerText = '店名';
-            }
-            else {
-                document.getElementById(paramKey).innerText = selected;
-            }
         }
 
         // define the callAPI function that takes a first name and last name as parameters
