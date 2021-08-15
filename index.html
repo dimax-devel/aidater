@@ -318,7 +318,7 @@
             <table id="cast-list" class="table table-borderless"></table>
             <ul class="list-group list-group-flush mt-3">
                 <li class="list-group-item">
-                    <input class="form-check-input me-1" type="radio" value="" aria-label="radio-term">先日
+                    <input class="form-check-input me-1" type="radio" value="true" aria-label="radio-term">先日
                 </li>
                 <li class="list-group-item">
                     <input class="form-check-input me-1" type="radio" value="" aria-label="radio-term">1週間
@@ -338,6 +338,38 @@
                     </div>
                 </li>
             </ul>
+            <button type="submit" class="btn btn-primary mt-3" onclick="callAPI()">検索</button>
+        </div>
+        <div>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
