@@ -217,26 +217,12 @@
 </head>
 
 <body>
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item" role="presentation">
-            <a class="nav-link active" id="select-tab" data-bs-toggle="tab" href="#select" role="tab"
-                area-controls="select" aria-selected="true">
-                店名から検索
-            </a>
-        </li>
-        <li class="nav-item" role="presentation">
-            <a class="nav-link" id="direct-tab" data-bs-toggle="tab" href="#direct" role="tab" area-controls="direct"
-                aria-selected="false">
-                直接入力して検索
-            </a>
-        </li>
-    </ul>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a href="#select2" class="nav-link active" data-toggle="tab">タブ１</a>
+            <a href="#select" class="nav-link active" data-toggle="tab">店名から検索</a>
         </li>
         <li class="nav-item">
-            <a href="#direct2" class="nav-link" data-toggle="tab">タブ2</a>
+            <a href="#direct" class="nav-link" data-toggle="tab">直接入力して検索</a>
         </li>
     </ul>
     <div class="tab-content">
@@ -247,32 +233,8 @@
 
         </div>
     </div>
-    <div>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                First checkbox
-            </li>
-            <li class="list-group-item">
-                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                Second checkbox
-            </li>
-            <li class="list-group-item">
-                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                Third checkbox
-            </li>
-            <li class="list-group-item">
-                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                Fourth checkbox
-            </li>
-            <li class="list-group-item">
-                <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                Fifth checkbox
-            </li>
-        </ul>
-    </div>
     <div class="tab-content">
-        <div id="select2" class="tab-pane active">
+        <div id="select" class="tab-pane active">
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="category" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -302,7 +264,7 @@
                 <div class="dropdown-menu" aria-labelledby="shop" id="shop-list"></div>
             </div>
         </div>
-        <div id="direct2" class="tab-pane">
+        <div id="direct" class="tab-pane">
             <form>
                 <div class="form-group">
                     <!-- <label for="exampleInputEmail1">Email address</label> -->
@@ -315,6 +277,30 @@
                     検索
                 </button>
             </form>
+        </div>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    First checkbox
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Second checkbox
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Third checkbox
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Fourth checkbox
+                </li>
+                <li class="list-group-item">
+                    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                    Fifth checkbox
+                </li>
+            </ul>
         </div>
     </div>
 
