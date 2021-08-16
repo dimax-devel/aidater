@@ -241,9 +241,9 @@
                         str = str + '<th scope="col">' + raw.casts[c] + '</th>';
                     }
                     str = str + '</tr></thead><tbody>';
-                    for (var d in formattedDate) {
-                        str = str + '<tr><td>' + formattedDate[d] + '</td>';
-                        var records = result.filter(_ => _.date.toString().substr(0, 10) == formattedDate[d]).sort((a, b) => { return a < b; });
+                    for (var d in dateList) {
+                        str = str + '<tr><td>' + dateList[d] + '</td>';
+                        var records = result.filter(_ => _.date.toString().substr(0, 10) == dateList[d]).sort((a, b) => { return a < b; });
                         for (var r in records) {
                             str = str + '<td>' + records[r].schedule + '</td>'
                         }
