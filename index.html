@@ -233,7 +233,7 @@
                     var endDate = new Date(raw.term_end);
                     var dateList = new Array();
                     for (var d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
-                        var formatedDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+                        var formatedDate = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
                         dateList.push(formatedDate);
                     }
                     var str = '<thead><tr><th scope="col">キャスト</th>';
