@@ -229,13 +229,28 @@
                     if (list.length == 0) {
                         return;
                     }
-                    var str = '<thead><tr><th scope="col">キャスト</th>';
-                    for (var i in list) {
-                        str = str + '<th scope="col">' + list[i] + '</th>';
+                    var startDate = new Date(raw.term_start);
+                    var endDate = new Date(raw.term_end);
+                    var dateList = new Array();
+                    for (var d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
+                        var formatedDate = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+                        dateList.push(formatedDate);
                     }
-                    str = str + '</tr></thead>';
+                    var str = '<thead><tr><th scope="col">キャスト</th>';
+                    for (var c in raw.casts) {
+                        str = str + '<th scope="col">' + raw.casts[c] + '</th>';
+                    }
+                    str = str + '</tr></thead><tbody>';
+                    for (var d in formattedDate) {
+                        str = str + '<tr><td>' + formattedDate[d] + '</td>';
+                        var records = result.filter(_ => _.date.toString().substr(0, 10) == formattedDate[d]).sort((a, b) => { return a < b; });
+                        for (var r in records) {
+                            str = str + '<td>' + records[r].schedule + '</td>'
+                        }
+                        str = str + '</tr>';
+                    }
 
-                    str = str + '</tr></tbody>';
+                    str = str + '</tbody>';
                     document.getElementById(targetId).innerHTML = str;
                 })
                 .catch(error => console.log('error', error));
