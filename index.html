@@ -229,15 +229,15 @@
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
                 }
                 else if (radioBtn.id.includes('one-week')) {
-                    var start_date = start_date.setDate(start_date.getDate() - 7);
+                    start_date.setDate(start_date.getDate() - 7);
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
                 }
                 else if (radioBtn.id.includes('two-week')) {
-                    var start_date = start_date.setDate(start_date.getDate() - 14);
+                    start_date.setDate(start_date.getDate() - 14);
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
                 }
                 else if (radioBtn.id.includes('one-month')) {
-                    var start_date = start_date.setMonth(start_date.getMonth() - 1);
+                    start_date.setMonth(start_date.getMonth() - 1);
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
                 }
             }
@@ -267,7 +267,7 @@
                         var formatedDate = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
                         dateList.push(formatedDate);
                     }
-                    var str = '<thead><tr><th scope="col">キャスト</th>';
+                    var str = '<thead><tr><th scope="col">出勤履歴</th>';
                     for (var c in raw.casts) {
                         str = str + '<th scope="col">' + raw.casts[c] + '</th>';
                     }
@@ -405,7 +405,7 @@
                     1ヶ月
                 </label>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group ms-10 mb-3">
                 <input id="radio-term" class="form-check-input" type="radio" name="radio-term">
                 <input id="text-term-start" type="text" class="form-control" aria-label="text-term-start"
                     placeholder="2021-05-01">
