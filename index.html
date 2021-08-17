@@ -208,13 +208,12 @@
             // add content type header to object
             myHeaders.append('Content-Type', 'application/json');
             var checklist = document.getElementsByClassName("form-check-input");
-
             var castlist = [];
-            if (document.getElementById('check-cast-all').check) {
-                castlist = Array.from(checklist).filter(_ => id.includes('check-cast-'));
+            if (document.getElementById('check-cast-all').checked) {
+                castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-'));
             }
             else {
-                castlist = Array.from(checklist).filter(_ => id.includes('check-cast-') && id.check);
+                castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-') && id.checked);
             }
             var raw = {
                 'term_start': '2021-05-01',
