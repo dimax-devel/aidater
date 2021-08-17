@@ -223,7 +223,7 @@
             }
             else {
                 var start_date = new Date(Date.now());
-                var end_date = start_date;
+                var end_date = new Date(Date.now());
                 end_date.setDate(end_date.getDate() - 1);
                 term_end = end_date.getFullYear() + '-' + ('0' + (end_date.getMonth() + 1)).slice(-2) + '-' + ('0' + end_date.getDate()).slice(-2);
                 radioBtn = Array.from(checklist).filter(_ => _.id.includes('radio-term-') && _.checked)[0];
