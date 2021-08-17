@@ -247,7 +247,7 @@
                         str = str + '<tr><td>' + dateList[d] + '</td>';
                         for (var c2 in raw.casts) {
                             var r = records.filter(_ => _.name == raw.casts[c2]);
-                            if (r != null) {
+                            if (r != null && r.length != 0) {
                                 str = str + '<td>' + r[0].schedule + '</td>'
                             }
                             else {
