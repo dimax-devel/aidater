@@ -184,7 +184,7 @@
                 .then(response => response.text())
                 .then(result => {
                     list = JSON.parse(result).body;
-                    if (list.length == 0) {
+                    if (list == null || list.length == 0) {
                         return;
                     }
                     var str = '<tbody><tr><td colspan="5"><input id="check-cast" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast">すべてのキャスト</td></tr><tr>';
