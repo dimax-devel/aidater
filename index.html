@@ -297,7 +297,7 @@
         }
 
         var searchShops = () => {
-            const paramKey = 'keyword';
+            const paramKey = 'shop';
             const targetId = 'shop-list2';
             // instantiate a headers object
             var myHeaders = new Headers();
@@ -319,11 +319,40 @@
                     list = JSON.parse(result).body;
                     var str = '';
                     for (var i in list) {
-                        str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i] + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')"><label class="form-check-label" for="radio-cast-' + list[i] + '">' + list[i] + '</label></div>';
+                        str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i].name + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].region + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].name + '\')"><label class="form-check-label" for="radio-cast-' + list[i].name + '">' + list[i].name + '</label></div>';
                     }
                     document.getElementById(targetId).innerHTML = str;
                 })
                 .catch(error => console.log('error', error));
+        }
+
+        function addParams(key1, value1, key2, value2, key3, value3, key4, value4) {
+            var url = new URL(location);
+            if (value1 == null || value1 == '') {
+                url.searchParams.delete(key1);
+            }
+            else {
+                url.searchParams.set(key1, value1);
+            }
+            if (value2 == null || value2 == '') {
+                url.searchParams.delete(key2);
+            }
+            else {
+                url.searchParams.set(key2, value2);
+            }
+            if (value3 == null || value3 == '') {
+                url.searchParams.delete(key3);
+            }
+            else {
+                url.searchParams.set(key3, value3);
+            }
+            if (value4 == null || value4 == '') {
+                url.searchParams.delete(key4);
+            }
+            else {
+                url.searchParams.set(key4, value4);
+            }
+            location.href = url;
         }
 
         function addParam(key, value) {
