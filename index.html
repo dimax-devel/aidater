@@ -216,13 +216,16 @@
                 castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-') && _.checked);
             }
             var term_start = '';
-            var start_date = new Date(Date.now());
-            var term_end = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
+            var term_end = '';
             if (document.getElementById('radio-term').checked) {
                 term_start = document.getElementById('text-term-start').value;
                 term_end = document.getElementById('text-term-end').value;
             }
             else {
+                var start_date = new Date(Date.now());
+                var end_date = start_date;
+                end_date.setDate(end_date.getDate() - 1);
+                term_end = end_date.getFullYear() + '-' + ('0' + (end_date.getMonth() + 1)).slice(-2) + '-' + ('0' + end_date.getDate()).slice(-2);
                 radioBtn = Array.from(checklist).filter(_ => _.id.includes('radio-term-') && _.checked)[0];
                 if (radioBtn.id.includes('yesterday')) {
                     start_date.setDate(start_date.getDate() - 1);
