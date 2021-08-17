@@ -237,13 +237,13 @@
                         var formatedDate = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
                         dateList.push(formatedDate);
                     }
-                    var records = JSON.parse(result).body.filter(_ => _.date.toString().substr(0, 10) == dateList[d]).sort((a, b) => { return a < b; });
                     var str = '<thead><tr><th scope="col">キャスト</th>';
                     for (var c in raw.casts) {
                         str = str + '<th scope="col">' + raw.casts[c] + '</th>';
                     }
                     str = str + '</tr></thead><tbody>';
                     for (var d in dateList) {
+                        var records = JSON.parse(result).body.filter(_ => _.date.toString().substr(0, 10) == dateList[d]).sort((a, b) => { return a < b; });
                         str = str + '<tr><td>' + dateList[d] + '</td>';
                         for (var r in records) {
                             str = str + '<td>' + records[r].schedule + '</td>'
