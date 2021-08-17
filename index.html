@@ -381,34 +381,38 @@
         </div>
         <div class="mx-5 mt-5">
             <table id="cast-list" class="table table-borderless"></table>
-            <ul class="list-group list-group-flush mt-3">
-                <li class="list-group-item">
-                    <input id="radio-term-yesterday" class="form-check-input me-1" type="radio" value=""
-                        aria-label="radio-term" checked>先日
-                </li>
-                <li class="list-group-item">
-                    <input id="radio-term-one-week" class="form-check-input me-1" type="radio" value=""
-                        aria-label="radio-term">1週間
-                </li>
-                <li class="list-group-item">
-                    <input id="radio-term-two-weeks" class="form-check-input me-1" type="radio" value=""
-                        aria-label="radio-term">2週間
-                </li>
-                <li class="list-group-item">
-                    <input id="radio-term-one-month" class="form-check-input me-1" type="radio" value=""
-                        aria-label="radio-term">1ヶ月
-                </li>
-                <li class="list-group-item">
-                    <div class="input-group mb-3">
-                        <input id="radio-term" class="form-check-input" type="radio" value="" aria-label="radio-term">
-                        <input id="text-term-start" type="text" class="form-control" aria-label="text-term-start"
-                            placeholder="2021-05-01">
-                        <span class="input-group-text">〜</span>
-                        <input id="text-term-end" type="text" class="form-control" aria-label="text-term-end"
-                            placeholder="2021-06-01">
-                    </div>
-                </li>
-            </ul>
+            <div class="form-check">
+                <input id="radio-term-yesterday" class="form-check-input me-1" type="radio" name="radio-term" checked>
+                <label class="form-check-label" for="radio-term-yesterday">
+                    先日
+                </label>
+            </div>
+            <div class="form-check">
+                <input id="radio-term-one-weeks" class="form-check-input me-1" type="radio" name="radio-term">
+                <label class="form-check-label" for="radio-term-one-weeks">
+                    1週間
+                </label>
+            </div>
+            <div class="form-check">
+                <input id="radio-term-two-weeks" class="form-check-input me-1" type="radio" name="radio-term">
+                <label class="form-check-label" for="radio-term-two-weeks">
+                    2週間
+                </label>
+            </div>
+            <div class="form-check">
+                <input id="radio-term-one-month" class="form-check-input me-1" type="radio" name="radio-term">
+                <label class="form-check-label" for="radio-term-one-month">
+                    1ヶ月
+                </label>
+            </div>
+            <div class="input-group mb-3">
+                <input id="radio-term" class="form-check-input" type="radio" name="radio-term">
+                <input id="text-term-start" type="text" class="form-control" aria-label="text-term-start"
+                    placeholder="2021-05-01">
+                <span class="input-group-text">〜</span>
+                <input id="text-term-end" type="text" class="form-control" aria-label="text-term-end"
+                    placeholder="2021-06-01">
+            </div>
             <button type="submit" class="btn btn-primary my-3" onclick="getAttends()">検索</button>
         </div>
         <div>
