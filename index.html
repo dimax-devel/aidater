@@ -296,6 +296,36 @@
                 .catch(error => console.log('error', error));
         }
 
+        var searchShops = () => {
+            const paramKey = 'keyword';
+            const targetId = 'shop-list2';
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append('Content-Type', 'application/json');
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+            var list = [];
+            var url = new URL('https://plvffcb0hk.execute-api.ap-northeast-1.amazonaws.com/dev');
+            url.searchParams.set('keyword', document.getElementById('text-keyword').value);
+            fetch(url.toString(), requestOptions)
+                .then(response => response.text())
+                .then(result => {
+                    list = JSON.parse(result).body;
+                    var str = '';
+                    for (var i in list) {
+                        str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i] + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')"><label class="form-check-label" for="radio-cast-' + list[i] + '">' + list[i] + '</label></div>';
+                    }
+                    document.getElementById(targetId).innerHTML = str;
+                })
+                .catch(error => console.log('error', error));
+        }
+
         function addParam(key, value) {
             var url = new URL(location);
             if (key == 'prefecture' || key == 'category') {
@@ -376,11 +406,12 @@
             <form class="mx-3">
                 <div class="form-group">
                     <!-- <label for="exampleInputEmail1">Email address</label> -->
-                    <input type="email" class="form-control mt-3" id="fName" placeholder="検索キーワード">
+                    <input type="email" class="form-control mt-3" id="text-keyword" placeholder="検索キーワード">
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                 </div>
                 <button type="submit" class="btn btn-primary" onclick="callAPI()">検索</button>
             </form>
+            <div id="shop-list2"></div>
         </div>
         <div class="mx-5 mt-5">
             <table id="cast-list" class="table table-borderless ms-5"></table>
