@@ -245,8 +245,14 @@
                     for (var d in dateList) {
                         var records = JSON.parse(result).body.filter(_ => _.date.toString().substr(0, 10) == dateList[d]).sort((a, b) => { return a < b; });
                         str = str + '<tr><td>' + dateList[d] + '</td>';
-                        for (var r in records) {
-                            str = str + '<td>' + records[r].schedule + '</td>'
+                        for (var c2 in raw.casts) {
+                            var r = records.filter(_ => _.name == raw.casts[c2]);
+                            if (r != null) {
+                                str = str + '<td>' + r[0].schedule + '</td>'
+                            }
+                            else {
+                                str = str + '<td>-</td>'
+                            }
                         }
                         str = str + '</tr>';
                     }
