@@ -209,17 +209,43 @@
             myHeaders.append('Content-Type', 'application/json');
             var checklist = document.getElementsByClassName("form-check-input");
             var castlist = [];
-            if (document.getElementById('check-cast-all').checked) {
+            if (document.getElementById('check-cast').checked) {
                 castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-'));
             }
             else {
                 castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-') && id.checked);
             }
+            var term_start = '';
+            const now = Date.now();
+            var term_end = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + ('0' + now.getDate()).slice(-2);
+            if (document.getElementById('radio-term').checked) {
+                term_start = document.getElementById('text-term-start').innerText;
+                term_end = document.getElementById('text-term-end').innerText;
+            }
+            else {
+                radioBtn = Array.from(checklist).filter(_ => _.id.includes('radio-term-' && _.checked))[0];
+                if (radioBtn.id.includes('yesterday')) {
+                    var start_date = now.setDate(now.getDate() - 1);
+                    var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
+                }
+                else if (radioBtn.id.includes('one-week')) {
+                    var start_date = now.setDate(now.getDate() - 7);
+                    var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
+                }
+                else if (radioBtn.id.includes('two-week')) {
+                    var start_date = now.setDate(now.getDate() - 14);
+                    var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
+                }
+                else if (radioBtn.id.includes('one-month')) {
+                    var start_date = now.setMonth(now.getMonth() - 1);
+                    var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
+                }
+            }
             var raw = {
-                'term_start': '2021-05-01',
-                'term_end': '2021-08-30',
-                'casts': ['うみ', 'るな', 'えな'],
-                'shop': 'ごほうびSPA千葉店'
+                'term_start': term_start,
+                'term_end': term_end,
+                'casts': castlist.map(_ => _.name),
+                'shop': document.getElementById('shop').innerText
             };
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
@@ -377,7 +403,7 @@
                 </li>
                 <li class="list-group-item">
                     <div class="input-group mb-3">
-                        <input class="form-check-input" type="radio" value="" aria-label="radio-term">
+                        <input id="radio-term" class="form-check-input" type="radio" value="" aria-label="radio-term">
                         <input id="text-term-start" type="text" class="form-control" aria-label="text-term-start"
                             placeholder="2021-05-01">
                         <span class="input-group-text">〜</span>
