@@ -213,7 +213,7 @@
                 castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-'));
             }
             else {
-                castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-') && id.checked);
+                castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-') && _.id.checked);
             }
             var term_start = '';
             const now = Date.now();
