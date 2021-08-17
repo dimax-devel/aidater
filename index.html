@@ -223,7 +223,7 @@
                 term_end = document.getElementById('text-term-end').innerText;
             }
             else {
-                radioBtn = Array.from(checklist).filter(_ => _.id.includes('radio-term-' && _.checked))[0];
+                radioBtn = Array.from(checklist).filter(_ => _.id.includes('radio-term-') && _.checked)[0];
                 if (radioBtn.id.includes('yesterday')) {
                     var start_date = now.setDate(now.getDate() - 1);
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
