@@ -244,7 +244,7 @@
             var raw = {
                 'term_start': term_start,
                 'term_end': term_end,
-                'casts': castlist.map(_ => _.name),
+                'casts': castlist.map(_ => _.id.substr(11, _.id.length - 11)),
                 'shop': document.getElementById('shop').innerText
             };
             // create a JSON object with parameters for API call and store in a variable
