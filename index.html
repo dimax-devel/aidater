@@ -216,7 +216,7 @@
                 castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-') && _.id.checked);
             }
             var term_start = '';
-            const now = Date.now();
+            const now = new Date(Date.now());
             var term_end = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + ('0' + now.getDate()).slice(-2);
             if (document.getElementById('radio-term').checked) {
                 term_start = document.getElementById('text-term-start').innerText;
