@@ -34,7 +34,9 @@
                 redirect: 'follow'
             };
             var list = [];
-            fetch('https://qgccu4skxd.execute-api.ap-northeast-1.amazonaws.com/dev', requestOptions)
+            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            url.searchParams.set('select', 'distinct category');
+            fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     list = JSON.parse(result).body;
@@ -97,7 +99,8 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://5g9xgvjr3e.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            url.searchParams.set('select', 'distinct location');
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
             fetch(url.toString(), requestOptions)
@@ -136,7 +139,8 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://ok6ztcirbe.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            url.searchParams.set('select', 'distinct shop');
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
             url.searchParams.set('region', getParam('region'));
@@ -175,7 +179,8 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://gexnjamci8.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            url.searchParams.set('select', 'distinct cast');
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
             url.searchParams.set('region', getParam('region'));
@@ -247,8 +252,7 @@
             var raw = {
                 'term_start': term_start,
                 'term_end': term_end,
-                'casts': castlist.map(_ => _.id.substr(11, _.id.length - 11)),
-                'shop': document.getElementById('shop').innerText
+                'casts': castlist.map(_ => _.id.substr(11, _.id.length - 11))
             };
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
@@ -258,8 +262,9 @@
                 body: JSON.stringify(raw),
                 redirect: 'follow'
             };
-            // make API call with parameters and use promises to get response
-            fetch('https://6t1fyqoxhk.execute-api.ap-northeast-1.amazonaws.com/dev', requestOptions)
+            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            url.searchParams.set('shop', getParam('shop'));
+            fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     var list = JSON.parse(result).body;
@@ -311,7 +316,8 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://plvffcb0hk.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            url.searchParams.set('select', 'distinct shop');
             url.searchParams.set('keyword', document.getElementById('text-keyword').value);
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
