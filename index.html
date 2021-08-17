@@ -213,11 +213,11 @@
                 castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-'));
             }
             else {
-                castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-') && _.id.checked);
+                castlist = Array.from(checklist).filter(_ => _.id.includes('check-cast-') && _.checked);
             }
             var term_start = '';
-            const now = new Date(Date.now());
-            var term_end = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + ('0' + now.getDate()).slice(-2);
+            var start_date = new Date(Date.now());
+            var term_end = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
             if (document.getElementById('radio-term').checked) {
                 term_start = document.getElementById('text-term-start').innerText;
                 term_end = document.getElementById('text-term-end').innerText;
@@ -225,19 +225,19 @@
             else {
                 radioBtn = Array.from(checklist).filter(_ => _.id.includes('radio-term-') && _.checked)[0];
                 if (radioBtn.id.includes('yesterday')) {
-                    var start_date = now.setDate(now.getDate() - 1);
+                    start_date.setDate(start_date.getDate() - 1);
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
                 }
                 else if (radioBtn.id.includes('one-week')) {
-                    var start_date = now.setDate(now.getDate() - 7);
+                    var start_date = start_date.setDate(start_date.getDate() - 7);
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
                 }
                 else if (radioBtn.id.includes('two-week')) {
-                    var start_date = now.setDate(now.getDate() - 14);
+                    var start_date = start_date.setDate(start_date.getDate() - 14);
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
                 }
                 else if (radioBtn.id.includes('one-month')) {
-                    var start_date = now.setMonth(now.getMonth() - 1);
+                    var start_date = start_date.setMonth(start_date.getMonth() - 1);
                     var term_start = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
                 }
             }
