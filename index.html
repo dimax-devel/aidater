@@ -187,9 +187,9 @@
                     if (list.length == 0) {
                         return;
                     }
-                    var str = '<tbody><tr><td colspan="5"><input class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast">すべてのキャスト</td></tr><tr>';
+                    var str = '<tbody><tr><td colspan="5"><input id="check-cast-all" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast">すべてのキャスト</td></tr><tr>';
                     for (var i in list) {
-                        str = str + '<td><input class="form-check-input" type="checkbox" value="" aria-label="check-cast">' + list[i] + '</td>';
+                        str = str + '<td><input id="check-cast-' + list[i] + '" class="form-check-input" type="checkbox" value="" aria-label="check-cast">' + list[i] + '</td>';
                         if ((parseInt(i, 10) + 1) % 5 == 0) {
                             str = str + '</tr><tr>';
                         }
@@ -207,7 +207,8 @@
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append('Content-Type', 'application/json');
-
+            var checklist = document.getElementsByClassName("form-check-input");
+            var castlist = checklist.filter(_ => _.id.includes('check-cast'));
             var raw = {
                 'term_start': '2021-05-01',
                 'term_end': '2021-08-30',
@@ -353,58 +354,36 @@
             <table id="cast-list" class="table table-borderless"></table>
             <ul class="list-group list-group-flush mt-3">
                 <li class="list-group-item">
-                    <input class="form-check-input me-1" type="radio" value="" aria-label="radio-term" checked>先日
+                    <input id="radio-term-yesterday" class="form-check-input me-1" type="radio" value=""
+                        aria-label="radio-term" checked>先日
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input me-1" type="radio" value="" aria-label="radio-term">1週間
+                    <input id="radio-term-one-week" class="form-check-input me-1" type="radio" value=""
+                        aria-label="radio-term">1週間
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input me-1" type="radio" value="" aria-label="radio-term">2週間
+                    <input id="radio-term-two-weeks" class="form-check-input me-1" type="radio" value=""
+                        aria-label="radio-term">2週間
                 </li>
                 <li class="list-group-item">
-                    <input class="form-check-input me-1" type="radio" value="" aria-label="radio-term">1ヶ月
+                    <input id="radio-term-one-month" class="form-check-input me-1" type="radio" value=""
+                        aria-label="radio-term">1ヶ月
                 </li>
                 <li class="list-group-item">
                     <div class="input-group mb-3">
                         <input class="form-check-input" type="radio" value="" aria-label="radio-term">
-                        <input type="text" class="form-control" aria-label="text-term-start" placeholder="2021-05-01">
+                        <input id="text-term-start" type="text" class="form-control" aria-label="text-term-start"
+                            placeholder="2021-05-01">
                         <span class="input-group-text">〜</span>
-                        <input type="text" class="form-control" aria-label="text-term-end" placeholder="2021-06-01">
+                        <input id="text-term-end" type="text" class="form-control" aria-label="text-term-end"
+                            placeholder="2021-06-01">
                     </div>
                 </li>
             </ul>
             <button type="submit" class="btn btn-primary my-3" onclick="getAttends()">検索</button>
         </div>
         <div>
-            <table id="attend-list" class="table table-striped table-bordered m-3">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+            <table id="attend-list" class="table table-striped table-bordered m-3"></table>
         </div>
     </div>
 
