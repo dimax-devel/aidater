@@ -219,8 +219,8 @@
             var start_date = new Date(Date.now());
             var term_end = start_date.getFullYear() + '-' + ('0' + (start_date.getMonth() + 1)).slice(-2) + '-' + ('0' + start_date.getDate()).slice(-2);
             if (document.getElementById('radio-term').checked) {
-                term_start = document.getElementById('text-term-start').innerText;
-                term_end = document.getElementById('text-term-end').innerText;
+                term_start = document.getElementById('text-term-start').value;
+                term_end = document.getElementById('text-term-end').value;
             }
             else {
                 radioBtn = Array.from(checklist).filter(_ => _.id.includes('radio-term-') && _.checked)[0];
@@ -405,7 +405,7 @@
                     1ヶ月
                 </label>
             </div>
-            <div class="input-group ms-10 mb-3">
+            <div class="form-check">
                 <input id="radio-term" class="form-check-input" type="radio" name="radio-term">
                 <input id="text-term-start" type="text" class="form-control" aria-label="text-term-start"
                     placeholder="2021-05-01">
