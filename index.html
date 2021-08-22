@@ -34,12 +34,12 @@
                 method: 'POST',
                 mode: 'cors',
                 headers: myHeaders,
-                body: JSON.stringify(raw),
+                //                body: JSON.stringify(raw),
                 redirect: 'follow'
             };
             var list = [];
             var url = new URL('https://qgccu4skxd.execute-api.ap-northeast-1.amazonaws.com/dev');
-            url.searchParams.set('select', 'category');
+            //            url.searchParams.set('select', 'category');
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
