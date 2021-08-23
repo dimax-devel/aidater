@@ -31,14 +31,14 @@
                 'term_start': '2021-06-01',
             };
             var requestOptions = {
-                method: 'POST',
+                method: 'GET',
                 mode: 'cors',
                 headers: myHeaders,
                 //                body: JSON.stringify(raw),
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://qgccu4skxd.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
             //            url.searchParams.set('select', 'category');
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
