@@ -126,7 +126,7 @@
                         document.getElementById(targetId).innerHTML = 'error';
                     }
                     else {
-                        list = JSON.parse(result).body.map(_ => _.region);
+                        list = JSON.parse(result).body.map(_ => _.location);
                         var str = '';
                         for (var i in list) {
                             str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'' + list[i] + '\')">' + list[i] + '</a>';
