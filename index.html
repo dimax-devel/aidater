@@ -153,14 +153,10 @@
             // add content type header to object
             myHeaders.append('Content-Type', 'application/json');
             // create a JSON object with parameters for API call and store in a variable
-            var raw = {
-                'term_start': '2021-06-01',
-            };
             var requestOptions = {
                 method: 'POST',
                 mode: 'cors',
                 headers: myHeaders,
-                body: JSON.stringify(raw),
                 redirect: 'follow'
             };
             var list = [];
@@ -169,6 +165,7 @@
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
             url.searchParams.set('region', getParam('region'));
+            url.searchParams.set('term_start', '2021-06-01');
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
