@@ -17,6 +17,11 @@
             initRegion();
             initShop();
             initCast();
+            var keyword = getParam('keyword');
+            if (keyword != null && keyword != '') {
+                document.location = '#direct-pane';
+                document.getElementById('text-keyword').value = keyword;
+            }
         };
 
         var initCategory = () => {
@@ -43,7 +48,6 @@
             url.searchParams.set('term_start', '2021-06-01');
             url.searchParams.set('term_end', '2021-06-02');
             url.searchParams.set('limit', '10000');
-            url.searchParams
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
