@@ -377,10 +377,10 @@
                         document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください';
                     }
                     else {
-                        list = JSON.parse(result).body.map(_ => _.shop);
+                        list = JSON.parse(result).body;
                         var str = '';
                         for (var i in list) {
-                            str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i] + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].region + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].name + '\')"><label class="form-check-label" for="radio-cast-' + list[i].name + '">' + list[i].name + '</label></div>';
+                            str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].name + '\')"><label class="form-check-label" for="radio-cast-' + list[i].name + '">' + list[i].name + '</label></div>';
                         }
                         document.getElementById(targetId).innerHTML = str;
                     }
