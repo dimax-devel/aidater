@@ -44,11 +44,12 @@
             url.searchParams.set('term_end', '2021-06-02');
             url.searchParams.set('limit', '10000');
             url.searchParams
+            document.getElementById(targetId).innerHTML = '読込中';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     if ('errorMessage' in JSON.parse(result)) {
-                        document.getElementById(targetId).innerHTML = 'error';
+                        document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください';
                     }
                     else {
                         list = JSON.parse(result).body.map(_ => _.category);
@@ -119,11 +120,12 @@
             url.searchParams.set('term_start', '2021-06-01');
             url.searchParams.set('term_end', '2021-06-02');
             url.searchParams.set('limit', '50000');
+            document.getElementById(targetId).innerHTML = '読込中';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     if ('errorMessage' in JSON.parse(result)) {
-                        document.getElementById(targetId).innerHTML = 'error';
+                        document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください';
                     }
                     else {
                         list = JSON.parse(result).body.map(_ => _.location);
@@ -166,11 +168,12 @@
             url.searchParams.set('category', getParam('category'));
             url.searchParams.set('region', getParam('region'));
             url.searchParams.set('term_start', '2021-06-01');
+            document.getElementById(targetId).innerHTML = '読込中';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     if ('errorMessage' in JSON.parse(result)) {
-                        document.getElementById(targetId).innerHTML = 'error';
+                        document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください。';
                     }
                     else {
                         list = JSON.parse(result).body.map(_ => _.shop);
@@ -212,11 +215,12 @@
             url.searchParams.set('category', getParam('category'));
             url.searchParams.set('region', getParam('region'));
             url.searchParams.set('shop', getParam('shop'));
+            document.getElementById(targetId).innerHTML = '読込中';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     if ('errorMessage' in JSON.parse(result)) {
-                        document.getElementById(targetId).innerHTML = 'error';
+                        document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください。';
                     }
                     else {
                         list = JSON.parse(result).body.map(_ => _.cast);
@@ -296,11 +300,12 @@
             };
             var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('shop', getParam('shop'));
+            document.getElementById(targetId).innerHTML = '読込中';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     if ('errorMessage' in JSON.parse(result)) {
-                        document.getElementById(targetId).innerHTML = 'error';
+                        document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください。';
                     }
                     else {
                         var list = JSON.parse(result).body;
@@ -356,11 +361,12 @@
             var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('select', 'distinct shop');
             url.searchParams.set('keyword', document.getElementById('text-keyword').value);
+            document.getElementById(targetId).innerHTML = '読込中';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
                 .then(result => {
                     if ('errorMessage' in JSON.parse(result)) {
-                        document.getElementById(targetId).innerHTML = 'error';
+                        document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください';
                     }
                     else {
                         list = JSON.parse(result).body;
