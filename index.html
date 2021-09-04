@@ -367,7 +367,7 @@
             };
             var list = [];
             var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
-            url.searchParams.set('select', 'shop, prefecture, location, category, name');
+            url.searchParams.set('select', 'shop, location, category, name');
             url.searchParams.set('keyword', document.getElementById('text-keyword').value);
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
@@ -380,7 +380,8 @@
                         list = JSON.parse(result).body;
                         var str = '';
                         for (var i in list) {
-                            str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].name + '\')"><label class="form-check-label" for="radio-cast-' + list[i].name + '">' + list[i].name + '</label></div>';
+                            //                            str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].name + '\')"><label class="form-check-label" for="radio-cast-' + list[i].name + '">' + list[i].name + '</label></div>';
+                            str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].name + '\')"><label class="form-check-label" for="radio-cast-' + list[i].name + '">' + list[i].name + '</label></div>';
                         }
                         document.getElementById(targetId).innerHTML = str;
                     }
