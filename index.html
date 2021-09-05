@@ -237,7 +237,7 @@
                         }
                         var str = '<tbody><tr><td colspan="5"><input id="check-cast" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast">すべてのキャスト</td></tr><tr>';
                         for (var i in list) {
-                            str = str + '<td><input id="check-cast-' + list[i] + '" class="form-check-input" type="checkbox" value="" aria-label="check-cast">' + list[i] + '</td>';
+                            str = str + '<td><input id="check-cast-' + list[i] + '" class="form-check-input" type="checkbox" value="" aria-label="check-cast" data-target="#direct-pane">' + list[i] + '</td>';
                             if ((parseInt(i, 10) + 1) % 5 == 0) {
                                 str = str + '</tr><tr>';
                             }
@@ -457,7 +457,7 @@
 <body>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a href="#select-pane" class="nav-link" data-toggle="tab">店名から検索</a>
+            <a href="#select-pane" class="nav-link active" data-toggle="tab">店名から検索</a>
         </li>
         <li class="nav-item">
             <a href="#direct-pane" class="nav-link" data-toggle="tab">直接入力して検索</a>
