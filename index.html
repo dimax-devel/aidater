@@ -110,7 +110,7 @@
                 str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\',　\'' + list[i] + '\');">' + list[i] + '</a>';
             }
             str = str + '<a class="dropdown-item" href="javascript:void(0);" onClick="addParam(\'' + paramKey + '\', \'\')"></a>';
-            document.getElementById(targetId).innerHTML = str;
+            // document.getElementById(targetId).innerHTML = str;
         }
 
         var initRegion = () => {
@@ -480,13 +480,13 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="category" id="category-list"></div>
             </div>
-            <div class="dropdown mx-3 my-1">
+            <!-- <div class="dropdown mx-3 my-1">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="prefecture"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     都道府県
                 </a>
                 <div class="dropdown-menu" aria-labelledby="prefecture" id="prefecture-list"></div>
-            </div>
+            </div> -->
             <div class="dropdown mx-3 my-1">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="region" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -551,7 +551,13 @@
                 </div>
                 <button type="submit" class="btn btn-primary">検索</button>
             </form>
-            <div id="shop-list2" class="m-3"></div>
+            <table class="table table-bordered m-3">
+                <tr>
+                    <td>
+                        <div id="shop-list2"></div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 
