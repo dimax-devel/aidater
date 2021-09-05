@@ -385,11 +385,12 @@
                     }
                     else {
                         list = JSON.parse(result).body;
-                        var str = '';
+                        var str = '<tr><td>';
                         for (var i in list) {
                             //                            str = str + '<div class="form-check mb-3"><input id ="radio-cast-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-cast" onClick="addParam(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].name + '\')"><label class="form-check-label" for="radio-cast-' + list[i].name + '">' + list[i].name + '</label></div>';
                             str = str + '<div class="form-check mb-3"><input id ="radio-shop-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-shop" onClick="addParams(' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].shop + '\')"><label class="form-check-label" for="radio-shop-' + list[i].shop + '">' + list[i].shop + '</label></div>';
                         }
+                        str = str + '</td></tr>';
                         document.getElementById(targetId).innerHTML = str;
                     }
                 })
@@ -551,7 +552,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">検索</button>
             </form>
-            <div id="shop-list2" class="m-3"></div>
+            <div>
+                <table id="shop-list2" class=" table table-bordered m-3"></table>
+            </div>
         </div>
     </div>
 
