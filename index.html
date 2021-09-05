@@ -28,6 +28,11 @@
                 document.getElementById('text-keyword').value = keyword;
                 searchShops();
             }
+            else {
+                var someTabTriggerEl = document.querySelector('#select-pane')
+                var tab = new bootstrap.Tab(someTabTriggerEl)
+                tab.show()
+            }
         };
 
         var initCategory = () => {
