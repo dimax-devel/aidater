@@ -22,14 +22,14 @@
             }
             var keyword = getParam('keyword');
             if (keyword != null && keyword != '') {
-                var someTabTriggerEl = document.querySelector('#direct-pane')
+                var someTabTriggerEl = document.querySelector('#nav-direct-pane')
                 var tab = new bootstrap.Tab(someTabTriggerEl)
                 tab.show()
                 document.getElementById('text-keyword').value = keyword;
                 searchShops();
             }
             else {
-                var someTabTriggerEl = document.querySelector('#select-pane')
+                var someTabTriggerEl = document.querySelector('#nav-select-pane')
                 var tab = new bootstrap.Tab(someTabTriggerEl)
                 tab.show()
             }
@@ -464,10 +464,10 @@
 
 <body>
     <ul class="nav nav-tabs">
-        <li class="nav-item">
+        <li class="nav-item" id="nav-select-pane">
             <a href="#select-pane" class="nav-link" data-toggle="tab">店名から検索</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-direct-pane">
             <a href="#direct-pane" class="nav-link" data-toggle="tab">直接入力して検索</a>
         </li>
     </ul>
