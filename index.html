@@ -237,7 +237,7 @@
                         if (list == null || list.length == 0) {
                             return;
                         }
-                        var str = '<tbody><tr><td colspan="5"><input id="check-cast" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast">すべてのキャスト</td></tr><tr>';
+                        var str = '<tbody><tr><td colspan="5"><input id="check-cast" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast" onClick="changeAllCheckState">すべてのキャスト</td></tr><tr>';
                         for (var i in list) {
                             str = str + '<td><input id="check-cast-' + list[i] + '" class="form-check-input" type="checkbox" value="" aria-label="check-cast">' + list[i] + '</td>';
                             if ((parseInt(i, 10) + 1) % 5 == 0) {
@@ -455,7 +455,16 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
+
+        var changeAllCheckState = () => {
+            var checklist = document.getElementsByClassName("form-check-input");
+            var newState = document.getElementById('check-cast').checked;
+            for (var i in checklist) {
+                checklist.checked = newState
+            }
+        }
     </script>
+
     <title>出勤履歴検索</title>
 </head>
 
@@ -549,7 +558,7 @@
                 <button type="submit" class="btn btn-primary">検索</button>
             </form>
             <div>
-                <table id="shop-list2" class=" table table-bordered m-3"></table>
+                <table id="shop-list2" class=" table table-bordered m-3 me-10"></table>
             </div>
         </div>
     </div>
