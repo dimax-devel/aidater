@@ -433,6 +433,7 @@
             else {
                 url.searchParams.set(key, value);
             }
+            url.searchParams.delete('keyword');
             location.href = url;
         }
 
