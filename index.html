@@ -457,7 +457,7 @@
         }
 
         var changeAllCheckState = () => {
-            var checklist = document.getElementsByClassName("form-check-input");
+            var checklist = document.getElementsByClassName("form-check-input").filter(_ => _.includes('check-cast-'));
             var newState = document.getElementById('check-cast').checked;
             for (var i in checklist) {
                 checklist[i].checked = newState
