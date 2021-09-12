@@ -457,8 +457,12 @@
             var checklist = document.getElementsByClassName("form-check-input");
             var newState = document.getElementById('check-cast').checked;
             for (var i in checklist) {
-                if (checklist[i].id.includes('check-cast-')) {
-                    checklist[i].checked = newState;
+                try {
+                    if (checklist[i].id.includes('check-cast-')) {
+                        checklist[i].checked = newState;
+                    }
+                } catch (err) {
+                    console.log(err)
                 }
             }
         }
