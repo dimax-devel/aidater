@@ -322,7 +322,7 @@
                             var formatedDate = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
                             dateList.push(formatedDate);
                         }
-                        var str = '<thead><tr><th scope="col">出勤履歴</th>';
+                        var str = '<col width="100"><thead><tr><th scope="col">出勤履歴</th>';
                         for (var c in raw.casts) {
                             str = str + '<th scope="col">' + raw.casts[c] + '</th>';
                         }
@@ -548,8 +548,7 @@
                 <button type="submit" class="btn btn-primary my-3" onclick="getAttends()">検索</button>
             </div>
             <div class="table-responsive">
-                <table id="attend-list" class="table table-sm table-bordered table-striped m-3">
-                    <col width="100">
+                <table id="attend-list" class="table table-sm table-bordered table-striped m-3" width="80%">
                 </table>
             </div>
         </div>
