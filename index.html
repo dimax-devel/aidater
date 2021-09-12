@@ -43,22 +43,18 @@
             // add content type header to object
             myHeaders.append('Content-Type', 'application/json');
             // create a JSON object with parameters for API call and store in a variable
-            var raw = {
-                'term_start': '2021-06-01',
-            };
             var requestOptions = {
                 method: 'GET',
                 mode: 'cors',
                 headers: myHeaders,
-                //                body: JSON.stringify(raw),
                 redirect: 'follow'
             };
             var list = [];
             var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('select', 'category');
-            url.searchParams.set('term_start', '2021-06-01');
-            url.searchParams.set('term_end', '2021-06-02');
-            url.searchParams.set('limit', '10000');
+            url.searchParams.set('term_start', '2021-09-11');
+            url.searchParams.set('term_end', '2021-09-12');
+            url.searchParams.set('limit', '50000');
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
@@ -132,8 +128,8 @@
             url.searchParams.set('select', 'location');
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
-            url.searchParams.set('term_start', '2021-06-01');
-            url.searchParams.set('term_end', '2021-06-02');
+            url.searchParams.set('term_start', '2021-09-11');
+            url.searchParams.set('term_end', '2021-09-12');
             url.searchParams.set('limit', '50000');
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
@@ -182,7 +178,6 @@
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
             url.searchParams.set('region', getParam('region'));
-            url.searchParams.set('term_start', '2021-06-01');
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
