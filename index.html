@@ -458,10 +458,11 @@
 
         var changeAllCheckState = () => {
             var list = document.getElementsByClassName("form-check-input");
-            var checklist = list.filter(_ => _.id.includes('check-cast-'));
             var newState = document.getElementById('check-cast').checked;
             for (var i in checklist) {
-                checklist[i].checked = newState
+                if (checklist[i].id.includes('check-cast-')) {
+                    checklist[i].checked = newState;
+                }
             }
         }
     </script>
