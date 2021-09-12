@@ -460,7 +460,7 @@
             var checklist = document.getElementsByClassName("form-check-input");
             var newState = document.getElementById('check-cast').checked;
             for (var i in checklist) {
-                checklist.checked = newState
+                checklist[i].checked = newState
             }
         }
     </script>
