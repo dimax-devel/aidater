@@ -237,7 +237,7 @@
                         if (list == null || list.length == 0) {
                             return;
                         }
-                        var str = '<tbody><tr><td colspan="5"><input id="check-cast" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast" onClick="changeAllCheckState">すべてのキャスト</td></tr><tr>';
+                        var str = '<tbody><tr><td colspan="5"><input id="check-cast" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast" onClick="changeAllCheckState()">すべてのキャスト</td></tr><tr>';
                         for (var i in list) {
                             str = str + '<td><input id="check-cast-' + list[i] + '" class="form-check-input" type="checkbox" value="" aria-label="check-cast">' + list[i] + '</td>';
                             if ((parseInt(i, 10) + 1) % 5 == 0) {
