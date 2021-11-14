@@ -52,7 +52,6 @@
             var list = [];
             var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('select', 'category');
-            url.searchParams.set('limit', '50000');
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
@@ -126,7 +125,6 @@
             url.searchParams.set('select', 'location');
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
-            url.searchParams.set('limit', '50000');
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
