@@ -331,7 +331,7 @@
                             var records = list.filter(_ => _.date.toString().substr(0, 10) == dateList[d]).sort((a, b) => { return a < b; });
                             str = str + '<tr><th>' + dateList[d] + '</th>';
                             for (var c2 in raw.casts) {
-                                var r = records.filter(_ => _.name == raw.casts[c2]);
+                                var r = records.filter(_ => _.cast == raw.casts[c2]);
                                 if (r != null && r.length != 0) {
                                     str = str + '<td>' + r[0].schedule + '</td>'
                                 }
