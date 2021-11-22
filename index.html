@@ -50,7 +50,7 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://kaouxwp6a8.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('select', 'category');
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
@@ -121,7 +121,7 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://kaouxwp6a8.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('select', 'location');
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
@@ -167,7 +167,7 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://kaouxwp6a8.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('select', 'shop');
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
@@ -363,7 +363,7 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
+            var url = new URL('https://kaouxwp6a8.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('select', 'shop, location, category, prefecture');
             url.searchParams.set('keyword', document.getElementById('text-keyword').value);
             document.getElementById(targetId).innerHTML = '読込中...';
