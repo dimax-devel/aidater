@@ -365,16 +365,19 @@
             // add content type header to object
             myHeaders.append('Content-Type', 'application/json');
             // create a JSON object with parameters for API call and store in a variable
+            var raw = {
+                'keyword' : document.getElementById('text-keyword').value.split(' ')
+            };
             var requestOptions = {
                 method: 'POST',
                 mode: 'cors',
                 headers: myHeaders,
+                body: JSON.stringify(raw),
                 redirect: 'follow'
             };
             var list = [];
             var url = new URL('https://kaouxwp6a8.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('select', 'shop, location, category, prefecture');
-            url.searchParams.set('keyword', document.getElementById('text-keyword').value);
             document.getElementById(targetId).innerHTML = '読込中...';
             fetch(url.toString(), requestOptions)
                 .then(response => response.text())
