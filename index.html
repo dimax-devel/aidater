@@ -366,7 +366,7 @@
             myHeaders.append('Content-Type', 'application/json');
             // create a JSON object with parameters for API call and store in a variable
             var raw = {
-                'keyword' : document.getElementById('text-keyword').value.split(' ')
+                'keyword' : document.getElementById('text-keyword').value.replaceAll("　", " ").split(' ')
             };
             var requestOptions = {
                 method: 'POST',
