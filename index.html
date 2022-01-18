@@ -388,12 +388,19 @@
                     else {
                         list = JSON.parse(result).body;
                         var str = '<tr><td>';
-                        for (var i in list) {
-                            if (list[i].prefecture != null && list[i].prefecture != '') {
-                                str = str + '<div class="form-check mb-3"><input id ="radio-shop-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-shop" onClick="addParams(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].shop + '\')"><label class="form-check-label" for="radio-shop-' + list[i].shop + '">' + list[i].location + '( ' + list[i].prefecture + ' )  ' + list[i].shop + '</label></div>';
-                            }
-                            else {
-                                str = str + '<div class="form-check mb-3"><input id ="radio-shop-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-shop" onClick="addParams(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].shop + '\')"><label class="form-check-label" for="radio-shop-' + list[i].shop + '">' + list[i].location + '  ' + list[i].shop + '</label></div>';
+                        if(list.length == 0)
+                        {
+                            str = str + '<div class="mb-3">検索結果が０件です</div>';
+                        }
+                        else
+                        {
+                            for (var i in list) {
+                                if (list[i].prefecture != null && list[i].prefecture != '') {
+                                    str = str + '<div class="form-check mb-3"><input id ="radio-shop-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-shop" onClick="addParams(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].shop + '\')"><label class="form-check-label" for="radio-shop-' + list[i].shop + '">' + list[i].location + '( ' + list[i].prefecture + ' )  ' + list[i].shop + '</label></div>';
+                                }
+                                else {
+                                    str = str + '<div class="form-check mb-3"><input id ="radio-shop-' + list[i].shop + '" class="form-check-input me-1" type="radio" name="radio-shop" onClick="addParams(\'prefecture\', \'' + list[i].prefecture + '\',' + '\'region\', \'' + list[i].location + '\',' + '\'category\', \'' + list[i].category + '\',' + '\'' + paramKey + '\', \'' + list[i].shop + '\')"><label class="form-check-label" for="radio-shop-' + list[i].shop + '">' + list[i].location + '  ' + list[i].shop + '</label></div>';
+                                }
                             }
                         }
                         str = str + '</td></tr>';
