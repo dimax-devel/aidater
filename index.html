@@ -235,7 +235,7 @@
                         document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください。';
                     }
                     else {
-                        list = JSON.parse(result).body.map(_ => _.cast);
+                        list = JSON.parse(result).body.map(_ => _.name);
                         if (list == null || list.length == 0) {
                             return;
                         }
