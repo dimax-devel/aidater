@@ -236,7 +236,12 @@
                     }
                     else {
                         list = JSON.parse(result).body.map(_ => _.name);
-                        if (list == null || list.length == 0) {
+                        if (list == null){
+                            document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください。';
+                            return;
+                        }
+                        else if(list.length == 0) {
+                            document.getElementById(targetId).innerHTML = '検索結果が０件です。';
                             return;
                         }
                         var str = '<tbody><tr><td colspan="5"><input id="check-cast" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast" onclick="changeAllCheckState()">すべてのキャスト</td></tr><tr>';
