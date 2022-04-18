@@ -222,8 +222,7 @@
                 redirect: 'follow'
             };
             var list = [];
-            var url = new URL('https://3q07szcuif.execute-api.ap-northeast-1.amazonaws.com/dev');
-            url.searchParams.set('select', 'cast');
+            var url = new URL('https://1elbva7bz5.execute-api.ap-northeast-1.amazonaws.com/dev');
             url.searchParams.set('prefecture', getParam('prefecture'));
             url.searchParams.set('category', getParam('category'));
             url.searchParams.set('region', getParam('region'));
@@ -236,8 +235,13 @@
                         document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください。';
                     }
                     else {
-                        list = JSON.parse(result).body.map(_ => _.cast);
-                        if (list == null || list.length == 0) {
+                        list = JSON.parse(result).body.map(_ => _.name);
+                        if (list == null){
+                            document.getElementById(targetId).innerHTML = 'エラー：リロードするか、それでも解決しない場合は条件を変更してください。';
+                            return;
+                        }
+                        else if(list.length == 0) {
+                            document.getElementById(targetId).innerHTML = '検索結果が０件です。';
                             return;
                         }
                         var str = '<tbody><tr><td colspan="5"><input id="check-cast" class="form-check-input ms-8" type="checkbox" value="" aria-label="check-cast" onclick="changeAllCheckState()">すべてのキャスト</td></tr><tr>';
